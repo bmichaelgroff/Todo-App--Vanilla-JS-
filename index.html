@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="apple-touch-icon" href="/Assets/jotit-webclip.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#304B3F"/>
+
+    <meta property="og:title" content="Jotit | A simple todo app" />
+    <meta property="og:image" content="/open-graph.png" />
+    <meta property="og:url" content="https://jotitapp.netlify.app/" />
+    <meta property="og:description" content="Jotit is a simple todo app to quickly jot things down. No log in required." />
+
+    <title>Jotit</title>
+</head>
+<body id="confetti-wrapper">
+    <div class="app-wrapper">
+        <h1>Jotit</h1>
+        <div class="fields-wrapper">
+            <input id="todo-input" type="text" placeholder="Enter a Jot...">
+            <button id="submit-btn">Jot it down</button>
+        </div>
+        <br>
+        <div class="todos-wrapper-parent">
+            <div class="todos-wrapper" id="todos-wrapper"></div>
+            <p class="footer-text" style="margin-top: 20px; position: absolute; bottom: 1.5rem; left: 41%; color: white; font-family: Satoshi-Light;">A todo app for quickly jotting things down.</p>
+        </div>
+    </div>
+
+    <script src="index.js" type="text/javascript"></script>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+          // Use the window load event to keep the page load performant
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+          });
+        }
+    </script>
+
+</body>
+</html>
